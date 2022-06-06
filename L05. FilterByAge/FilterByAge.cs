@@ -30,17 +30,17 @@ class FilterByAge
 
         List<Person> filteredPeople = people.Where(filter).ToList();
 
-        Action<Person> formatPeopleForPrint = PrintFormatPeople(format);
+        Action<Person> prinPersonFilter = CreatePersonPrintFilter(format);
 
-        PrintPeople(filteredPeople, formatPeopleForPrint);
+        PrintPeople(filteredPeople, prinPersonFilter);
     }
 
     private static void PrintPeople(List<Person> filteredPeople, Action<Person> formatPeopleForPrint)
     {
-        filteredPeople.ToList().ForEach(formatPeopleForPrint);
+        filteredPeople.ForEach(formatPeopleForPrint);
     }
 
-    private static Action<Person> PrintFormatPeople(string format)
+    private static Action<Person> CreatePersonPrintFilter(string format)
     {
         if (format == "name")
         {
