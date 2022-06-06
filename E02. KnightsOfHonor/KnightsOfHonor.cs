@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-internal class Program
+internal class KnightsOfHonor
 {
     static void Main(string[] args)
     {
